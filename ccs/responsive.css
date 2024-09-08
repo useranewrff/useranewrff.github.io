@@ -1,0 +1,288 @@
+/* X-Large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) and (max-width: 1399.98px) {
+  :root {
+    --font-base: 15px;
+  }
+}
+/* Medium devices (tablets, laptops between 992px to 1200px) */
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+  :root {
+    --font-size--h1: 44px;
+    --font-size--h2: 32px;
+    --font-base: 15px;
+  }
+  .hero-banner.hero-banner-1 {
+    padding-top: 0;
+    min-height: 750px;
+  }
+  .blog-area .article-item .card-list li * {
+    font-size: 10px;
+  }
+}
+/* Medium devices (tablets, Between 768px to 992px) */
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  :root {
+    --font-size--h1: 44px;
+    --font-size--h2: 38px;
+    --font-size--h3: 22px;
+    --font-size--h4: 22px;
+  }
+  .blog-area.blog-2 .card-big .card-list * {
+    font-size: 12px;
+  }
+  .counter-area.counter-3 .content-title {
+    margin-bottom: 40px;
+  }
+  .footer-2.mt-negative {
+    background-position: right bottom;
+  }
+  .hero-banner.hero-banner-7 {
+    background-position: left top;
+  }
+  .pricing-4 {
+    background-size: cover;
+  }
+  .pricing-4 .pricing-item {
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-md);
+  }
+  .pricing-4 .pricing-item h4 {
+    color: var(--text-dark);
+  }
+  .pricing-4 .pricing-item .h2 {
+    color: var(--color-primary);
+  }
+  .pricing-4 .pricing-item p, .pricing-4 .pricing-item span {
+    color: var(--text-medium);
+  }
+  .screenshot-area.screenshot-2 {
+    background-size: contain;
+  }
+}
+/* Small devices (landscape phones, less than 768px) */
+@media only screen and (max-width: 767.98px) {
+  /* Reset CSS */
+  :root {
+    --font-sm: 12px;
+    --font-xsm: 10px;
+    --font-lg: 16px;
+    --font-size--h1: 34px;
+    --font-size--h2: 28px;
+    --font-size--h3: 20px;
+    --font-size--h4: 20px;
+    --font-size--h5: 18px;
+    --font-size--h6: 16px;
+  }
+  .ptb-100 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .ptb-120 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .ptb-70 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .ptb-60 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .pt-100 {
+    padding-top: 60px;
+  }
+  .pt-120 {
+    padding-top: 60px;
+  }
+  .pt-60 {
+    padding-top: 20px !important;
+  }
+  .pt-70 {
+    padding-top: 30px;
+  }
+  .pb-100 {
+    padding-bottom: 60px;
+  }
+  .pb-120 {
+    padding-bottom: 60px;
+  }
+  .pb-75 {
+    padding-bottom: 35px;
+  }
+  .pb-90 {
+    padding-bottom: 30px;
+  }
+  .pb-70 {
+    padding-bottom: 30px;
+  }
+  .pb-80 {
+    padding-bottom: 20px;
+  }
+  .pb-60 {
+    padding-bottom: 20px !important;
+  }
+  .pb-30 {
+    padding-bottom: 20px !important;
+  }
+  .px-5 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .px-60 {
+    padding-inline: 20px;
+  }
+  .btn-lg, .btn-md {
+    padding: 12px 26px;
+    font-size: var(--font-base);
+  }
+  .w-sm-100 {
+    width: 100% !important;
+  }
+  .w-sm-75 {
+    width: 100% !important;
+  }
+  .go-top {
+    width: 35px;
+    height: 35px;
+    font-size: 22px;
+    bottom: 10%;
+  }
+  .section-title .title,
+.content-title h2 {
+    margin-top: -4px;
+  }
+  .title-md {
+    font-size: 22px;
+  }
+  .hero-banner.hero-banner-1 {
+    padding-top: 120px;
+  }
+  .hero-banner.hero-banner-2 {
+    padding-top: 120px;
+  }
+  .hero-banner.hero-banner-3 {
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
+  .hero-banner.hero-banner-4 {
+    padding-top: 120px;
+  }
+  .hero-banner.hero-banner-5 .hero-area {
+    padding-top: 120px;
+  }
+  .hero-banner.hero-banner-5 .banner-content {
+    padding-top: 0;
+  }
+  .hero-banner.hero-banner-6 .hero-area {
+    padding-top: 120px;
+  }
+  .hero-banner.hero-banner-6 .banner-content {
+    padding-top: 0;
+  }
+  .hero-banner.hero-banner-7 {
+    padding-top: 120px;
+    background-size: cover;
+  }
+  .hero-banner.hero-banner-8 {
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
+  .spacer {
+    padding: 10px 0;
+  }
+  .tabs-navigation {
+    overflow: hidden;
+    overflow-x: auto;
+  }
+  .tabs-navigation .nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow: unset;
+  }
+  .tabs-navigation .nav li {
+    flex: 0 0 auto;
+  }
+  .testimonial-pricing-area .testimonial-area {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+  .testimonial-pricing-area .pricing-3 {
+    padding-top: 60px !important;
+  }
+  .testimonial-area.testimonial-2 .slider-item {
+    padding: 0;
+  }
+  .feature-area.feature-3 {
+    padding-top: 20px;
+  }
+  .feature-area.feature-3 .card {
+    padding: 0;
+  }
+  .feature-area.feature-3 .card::before {
+    content: none;
+  }
+  .overview-area {
+    padding-bottom: 260px;
+  }
+  .overview-area .bg-shape {
+    background-size: cover;
+  }
+  .features.pt-80 {
+    padding-top: 40px;
+  }
+  .pricing-4 {
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
+  .pricing-4 .pricing-item {
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-md);
+  }
+  .pricing-4 .pricing-item h4 {
+    color: var(--text-dark);
+  }
+  .pricing-4 .pricing-item .h2 {
+    color: var(--color-primary);
+  }
+  .pricing-4 .pricing-item p, .pricing-4 .pricing-item span {
+    color: var(--text-medium);
+  }
+  .testimonial-area.testimonial-3.mt-negative {
+    padding-top: 30px;
+    padding-bottom: 0;
+    margin-top: 0;
+  }
+  .screenshot-area.screenshot-2 {
+    background: none !important;
+    padding-bottom: 0;
+  }
+  .counter-area.counter-3 .content-title {
+    margin-bottom: 40px;
+  }
+  .footer-3 {
+    background-size: 200%;
+  }
+  .page-title-area {
+    padding-top: 120px;
+  }
+}
+/* Small devices (landscape phones, between 576px to 768px) */
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+  .feature-area.feature-1 .overlay {
+    height: 70%;
+  }
+}
+@media only screen and (max-width: 1199.98px) {
+  .shape {
+    opacity: 0;
+    display: none;
+  }
+}
+@media only screen and (max-width: 575.98px) {
+  .blog-details-area .comments .comment-list .comment .children .comment-body,
+.blog-details-area .comments .comment-list .comment .children {
+    -webkit-padding-start: 0;
+            padding-inline-start: 0;
+  }
+}/*# sourceMappingURL=responsive.css.map */
