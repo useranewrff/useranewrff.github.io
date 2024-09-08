@@ -1,665 +1,268 @@
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="KreativDev">
-    <meta name="description" content="导管官网">
-    <meta name="keywords" content="导管官网">
-    <!-- Title -->
-    <title>导管官网</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/logo/fav-1.png" type="image/x-icon">
+    <title>导管中心官网</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #f4f4f4;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #0084ff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 9px #999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px 0;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+        }
+        .btn:active {
+            background-color: #0056b3;
+            box-shadow: 0 5px #666;
+            transform: translateY(0);
+        }
+        .rating {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .rating-count, .rating-percentage {
+            font-weight: bold;
+            color: #0084ff;
+            transition: transform 0.5s ease;
+        }
+        .introduction {
+            margin-top: 30px;
+            text-align: left;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 16px;
+            line-height: 1.6;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 新增阴影 */
+        }
+        .links {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .links a {
+            color: #0084ff;
+            text-decoration: none;
+            display: block;
+            margin: 5px;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.2s ease; /* 新增过渡效果 */
+        }
+        .links a:hover {
+            text-decoration: underline;
+            background-color: #e6f7ff;
+            transform: translateY(-3px); /* 新增悬浮效果 */
+        }
+        /* 新增的标题样式 */
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        /* 动画效果 */
+        @keyframes countAnimation {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/vendors/bootstrap.min.css">
-    <!-- Fontawesome Icon CSS -->
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
-    <!-- Flaticon CSS -->
-    <link rel="stylesheet" href="assets/fonts/flaticon/font/flaticon.css">
-    <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="assets/css/vendors/magnific-popup.min.css">
-    <!-- Swiper Slider -->
-    <link rel="stylesheet" href="assets/css/vendors/swiper-bundle.min.css">
-    <!-- Nice Select -->
-    <link rel="stylesheet" href="assets/css/vendors/nice-select.css">
-    <!-- AOS Animation CSS -->
-    <link rel="stylesheet" href="assets/css/vendors/aos.min.css">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="assets/css/vendors/animate.min.css">
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <style type="text/css">
-    .main{
-      width: 400px;
-      height: 400px;
-      background-color: #aaa;
-      position: relative;
-    }
-    .child{
-      height: 400px;
-      position: absolute;
-      margin: auto;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-    }
-    .child2{
-    align-items:center;
-      width: 150px;
-      height: 50px;
-      position: absolute;
-      margin: auto;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-    }
-  </style>
+/* 导航栏样式 */
+.navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: inline-block;
+        }
+        .navbar a:hover {
+            background-color: #555;
+        }
 
+        /* 页脚样式 */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        .footer p {
+            margin: 0;
+        }
 
+        /* 卡片样式 */
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
 
+        /* 侧边栏样式 */
+        .sidebar {
+            background-color: #f4f4f4;
+            padding: 15px;
+            width: 250px;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        /* 主内容区域样式 */
+        .main-content {
+            margin-left: 280px; /* 调整以适应侧边栏宽度 */
+            padding: 20px;
+        }
+
+        /* 响应式设计：当屏幕尺寸小于768px时，侧边栏变为顶部导航 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+
+        /* 代码块样式 */
+        .code-block {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        /* 表格样式 */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f4f4f4;
+        }
+
+        /* 按钮组样式 */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .btn-group .btn {
+            margin: 5px;
+        }
+
+        /* 新增动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+    </style>
 </head>
-
-<body class="theme-color-1">
-    <!-- Preloader start -->
-    <div id="preLoader">
-        <div class="loader"></div>
+<body>
+    <h1>欢迎来到导管中心官网</h1>
+    <a href="javascript:void(0);" class="btn" id="joinBtn">加入QQ群获得脚本</a>
+    <div class="introduction">
+        <h2>关于我们</h2>
+        <p>导管中心是宇宙无敌超级脚本可以拷打所有脚本且免费</p>
+        <p>我们的团队由一个富有经验的脚本大牛制作的</p>
     </div>
-    <!-- Preloader end -->
-
-    <!-- Header-area start -->
-    <header class="header-area" data-aos="fade-down">
-        <!-- Start mobile menu -->
-        <div class="mobile-menu">
-            <div class="container">
-                <div class="mobile-menu-wrapper"></div>
-            </div>
-        </div>
-        <!-- End mobile menu -->
-
-        <div class="main-responsive-nav">
-            <div class="container">
-                <!-- Mobile Logo -->
-                <div class="logo">
-                    <a href="index.html" target="_self" title="Teeno">
-                        <img src="fav-1.png" alt="Brand logo">
-                    </a>
-                </div>
-                <!-- Menu toggle button -->
-                <button class="menu-toggler" type="button">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>                
-            </div>
-        </div>
-
-        <div class="main-navbar">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg">
-                    <!-- Logo -->
-                    <a class="navbar-brand" href="index.html" target="_self" title="Teeno">
-                        <img src="https://cn.zhatu.fun/assets/images/logo/logo-1.png" alt="Brand Logo">
-                    </a>
-                    <!-- Navigation items -->
-                    <div id="v4" class="mobile-menu"> 
-    <div id="v5" class="container"> 
-     <div id="v6" class="mobile-menu-wrapper">
-      <ul id="mainMenu" class="navbar-nav mobile-item mx-auto"> 
-     
-       <li id="v22" class="nav-item"> <a id="v23" class="nav-link" href="哈">无</a> </li> 
-       <li id="v22" class="nav-item"> <a id="v23" class="nav-link" href="哈">无</a> </li> 
-          <li id="v30" class="nav-item"> <a id="v31" class="nav-link toggle">加入QQ交流群<i id="v32" class="fal fa-plus"></i></a> 
-       
-        <ul id="v33" class="menu-dropdown"> 
-         <li id="v34" class="nav-item"> <a id="v35" class="nav-link" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=3uvdxKPPSGsO6Gd1Teva-wLyZV3rrZqe&authKey=fojWDwqPMXlbyXlcm0SEruCiv0y4qXmTA3pqUYWD7lvtr2GF8oKqAqyGT%2BESSdZO&noverify=0&group_code=855219798">官方群①</a> </li> 
-         <li id="v36" class="nav-item"> <a id="v37" class="nav-link" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=3hICE_iFqyN2FOcFxXQHssnuH2I0IFyl&authKey=CGROI8PVp%2FTpz%2FXKViTLYYd5dygR2edB5tFZ7x0%2FwxI6oYi%2BqxvxQ5qTn413MREm&noverify=0&group_code=980358044">官方群②</a> </li> 
-         <li id="v38" class="nav-item"> <a id="v39" class="nav-link" href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=9zgXI501puvDAgR7vOZXDWJtI5jEzWER&authKey=tuKfgiFYdGgJJRCbWI8QMXEAE1HSTKLgsVGLSHJSELnvaogWM4Jk8fAULHIQlt%2F3&noverify=0&group_code=965882368">官方群③</a> </li> 
-        </ul> </li> 
-        <li id="v22" class="nav-item"> <a id="v23" class="nav-link" href="">无</a> </li> 
-       <li id="v26" class="nav-item"> <a id="v27" class="nav-link" href="index.html#plan">选择您的计划</a> </li> 
-       <li id="v28" class="nav-item"> <a id="v29" class="nav-link" href="index.html#faq">常见问题帮助</a> </li> 
-         <li id="v36" class="nav-item"> <a id="v37" class="nav-link" href="">查看更详细的使用说明</a> </li> 
-       
-        <li id="v24" class="nav-item"> <a id="v25" class="nav-link active" href="链接">(未开发)</a> </li> 
-        
-    
-        
-       <li id="v40" class="nav-item"> <a id="v41" class="nav-link active" href="链接">(未开发)</a> </li> 
-        <li id="v22" class="nav-item"> <a id="v23" class="nav-link" href="无">(制作中)</a> </li> 
-           <li id="v22" class="nav-item"> <a id="v23" class="nav-link" href=""></a> </li> 
-           
-         <li id="v22" class="nav-item"> <a id="v23" class="nav-link" href="无">前往去联系开发作者:2332848181[导管]</a> </li> 
-      </ul>
-                    </div>
-
-                </nav>
-            </div>
-        </div>
-    </header>
-    <!-- Header-area end -->
-    
-    <!-- Home-area start-->
-    <section class="hero-banner hero-banner-1 bg-cover bg-img bg-primary-light" data-bg-image="assets/images/banner/hero-banner-bg-1.png">
-        <div class="container">
-
-            <div class="row align-items-center gx-xl-5">
-                <div class="col-lg-6">               
-                  <div class="child">                 
-                    <h1 class="title mb-30" style="display:flex;justify-content:center; font-size:45px; margin-bottom: 10px;" data-aos="fade-up" data-aos-delay="0">导管</h1>
-                    <p class="text" style="display:flex;justify-content:center; margin-top: -20px;" data-aos="fade-up" data-aos-delay="100">团队 • 免费 • 创新</p>
-                    </p>
-                       <div class="cta-btn mt-40 btn-groups" style="display:flex;justify-content:center; flex-direction:row;" data-aos="fade-up" data-aos-delay="200">
-                       
-                       <a href="fluxus.cc" class="btn btn-lg btn-primary" title="sourcecode" target="_self" style="border-radius: 30px;">立即下载fluxus</a>     
-                       
-                       <a href="index.html#plan" class="btn btn-lg btn-primary mr-10" title="Download App" target="_self" style="border-radius: 30px;">无</a>     
-                       
-                       <a href="https://www.tmjiasuqi.com/" class="btn btn-lg btn-primary" title="sourcecode" target="_self" style="border-radius: 30px;">立即下载TM加速器</a> 
-                       
-                       <a href="链接" class="btn btn-lg btn-primary" title="sourcecode" target="_self" style="border-radius: 30px;">无</a> 
-                       </div>
-                     </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up">
-                    <div class="banner-image">
-                        <img class="lazyload blur-up" src="index.html" data-src="" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Home-area end -->
-
-    <!-- Counter-area start -->
-    <section class="counter-area counter-2 pt-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-sm-6 col-lg-3 item mb-30" data-aos="fade-up">
-                            <div class="card text-center radius-lg p-30">
-                                <div class="card-icon mx-auto mb-20">
-                                    <i class="flaticon-app-installation"></i>
-                                </div>
-                                <div class="card-content">
-                                    <span class="h2 font-medium mb-2"><span class="counter">1</span>千+</span>
-                                    <p class="card-text lh-1">启动使用次数</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3 item mb-30" data-aos="fade-up">
-                            <div class="card text-center radius-lg p-30">
-                                <div class="card-icon mx-auto mb-20">
-                                    <i class="flaticon-rating"></i>
-                                </div>
-                                <div class="card-content">
-                                    <span class="h2 font-medium mb-2"><span class="counter">99</span>%</span>
-                                    <p class="card-text lh-1">使用评价率</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3 item mb-30" data-aos="fade-up">
-                            <div class="card text-center radius-lg p-30">
-                                <div class="card-icon mx-auto mb-20">
-                                    <i class="flaticon-downloads"></i>
-                                </div>
-                                <div class="card-content">
-                                    <span class="h2 font-medium mb-2"><span class="counter">550</span>个</span>
-                                    <p class="card-text lh-1">下载次数</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Counter-area end -->
-
-
-
-    <!-- Feature-area start -->
-    <section class="feature-area feature-1 pt-100">
-      <section class="feature-area feature-1 pt-100">
-        <div class="overlay bg-img opacity-1" data-bg-image="feature-bg-1.jpg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                
-                    <div class="section-title title-center mb-50" data-aos="fade-up">
-                        <span class="subtitle color-primary">How do I use River Script</span>
-                        <h2 class="title mt-0">我该怎么使用导管脚本</h2>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-lg-3" data-aos="fade-up">
-                            <div class="row">
-                                <div class="col-lg-12 col-sm-6">
-                                    <div class="item mb-40">
-                                        <div class="item-top">
-                                            <div class="item-icon shadow-md border border-primary radius-md">
-                                                <span class="h3 color-primary m-0">01</span>
-                                            </div>
-                                            <div class="item-top-content">
-                                                <h6 class="title mb-1">使用教程①</h6>
-                                                <p class="text">进入qq-下载脚本-下载fluxus-下载TM加速器</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-sm-6">
-                                    <div class="item mb-40">
-                                        <div class="item-top">
-                                            <div class="item-icon shadow-md border border-primary radius-md">
-                                                <span class="h3 color-primary m-0">02</span>
-                                            </div>
-                                            <div class="item-top-content">
-                                                <h6 class="title mb-1">使用教程②</h6>
-                                                <p class="text">使用TM加速器-加速fluxus Roblox-注册账号或登录账号</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                  <div class="col-lg-12 col-sm-6">
-                                    <div class="item mb-40">
-                                        <div class="item-top">
-                                            <div class="item-icon shadow-md border border-primary radius-md">
-                                                <span class="h3 color-primary m-0">03</span>
-                                            </div>
-                                            <div class="item-top-content">
-                                                <h6 class="title mb-1">使用教程③</h6>
-                                                <p class="text">启动里面的游戏-看有没有悬浮窗-有的就完成了</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-sm-6">
-                                    <div class="item mb-40">
-                                        <div class="item-top">
-                                            <div class="item-icon shadow-md border border-primary radius-md">
-                                                <span class="h3 color-primary m-0">04</span>
-                                            </div>
-                                            <div class="item-top-content">
-                                                <h6 class="title mb-1">更进一步的教学</h6>
-                                                <p class="text">了解更多信息可以往上滑-或者点击右上角三条杠-查看更多说明</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Feature-area end -->
-    
-    <!-- Feature-area start -->
-    <section class="feature-area feature-1 pt-100">
-        <div class="overlay bg-img opacity-1" data-bg-image="feature-bg-1.jpg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title title-center mb-50" data-aos="fade-up">
-                        <span class="subtitle color-primary">The history of our development history</span>
-                        <h2 class="title mt-0">我们的发展历史</h2>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-lg-3" data-aos="fade-up">
-                            <div class="row">
-                                <div class="col-lg-12 col-sm-6">
-                                    <div class="item mb-40">
-                                        <div class="item-top">
-                                        
-                                            <div class="item-top-content">
-                                               <span class="h3 color-primary m-0">2023.3.16</span>
-                                                <h6 class="title mb-1">刚开始+注入器</h6>
-                                                <p class="text">一开始我还是一个啥也不懂的萌新</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-sm-6">
-                                    <div class="item mb-40">
-                                        <div class="item-top">
-                                            <div class="item-top-content">
-                                               <span class="h3 color-primary m-0">2023.4.5</span>
-                                                <h6 class="title mb-1">2023.7.15导管</h6>
-                                                <p class="text">我第1次开始做脚本的时候-是看到陈脚本-我也跟着学起来了-当我也想制作脚本的时候-我去找了源码花一天学会缝合</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                  <div class="col-lg-12 col-sm-6">
-                                    <div class="item mb-40">
-                                        <div class="item-top">
-                                           <div class="item-top-content">
-                                               <span class="h3 color-primary m-0">2023.4.8</span>
-                                                <h6 class="title mb-1">2024.8.31学会记住自制</h6>
-                                                <p class="text">哔哩哩教程</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                  <div class="col-lg-12 col-sm-6">
-                                    <div class="item mb-40">
-                                        <div class="item-top">
-                                           <div class="item-top-content">
-                                               <span class="h3 color-primary m-0">2023.4.10</span>
-                                                <h6 class="title mb-1">免费</h6>
-                                                <p class="text">缓慢更新</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Feature-area end -->
-
-    <!-- Pricing-area start -->
-    <section class="pricing-area pt-100 pb-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title title-center mb-50" data-aos="fade-up" id="plan">
-                        <span class="subtitle color-primary">Roblox导管脚本</span>
-                        <h2 class="title mt-0 mb-15">请做出你的下载选择</h2>                         
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="monthly">
-                            <div class="row justify-content-center">
-                                <div class="col-md-6 col-lg-4 item" data-aos="fade-up">
-                                    <div class="pricing-item mb-30 bg-primary-light radius-lg">
-                                        <div class="pricing-header">
-                                            <h4 class="mb-0 lh-1">导管缝合</h4>
-                                        </div>
-                                        <ul class="pricing-list list-unstyled mt-25" data-toggle-show="5">
-                                          <li><i class="fal fa-check"></i>LUA语言开发</li>
-                                          <li><i class="fal fa-check"></i>界面好看精美-让人一看就好懂-功能也是最好用的</li>
-                                          <li><i class="fal fa-check"></i>不需要框架-也不需要root-只需要下载一个fluxus注入器</li>
-                                             <li><i class="fal fa-check"></i>不会使用的-可以往上滑找到-查看更详细的说明-教程好懂</li>
-                                        </ul>
-                                        <div class="price mt-30">
-                                            <span class="h3 mb-0">导管</span>
-                                            <span class="period">/免费导管脚本</span>
-                                        </div>
-                                        <div class="mt-20">
-                                            <a href="无" class="btn btn-lg btn-block btn-primary no-animation" title="Choose" target="_self">无</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 item" data-aos="fade-up">
-                                    <div class="pricing-item mb-30 bg-primary-light radius-lg">
-                                        <div class="pricing-header">
-                                            <h4 class="mb-0 lh-1">导管自制</h4>
-                                        </div>
-                                        <ul class="pricing-list list-unstyled mt-25" data-toggle-show="5">
-                                            <li><i class="fal fa-check"></i>LUA语言开发</li>
-                                            <li><i class="fal fa-check"></i>在自制可以体验到比缝合更好的功能</li>                                       
-                                            <li><i class="fal fa-check"></i>不用买-免费</li>
-                                              <li><i class="fal fa-check"></i>缓慢更新中</li>
-                                        </ul>
-                                        <div class="price mt-30">
-                                            <span class="h3 mb-0">无</span>
-                                            <span class="period">无</span>
-                                        </div>
-                                        <div class="mt-20">
-                                            <a href="链接" class="btn btn-lg btn-block btn-primary no-animation" title="Choose" target="_self">无</a>
-                                        </div>
-                                        <div class="mt-20">
-                                            <a href="链接" class="btn btn-lg btn-block btn-primary no-animation" title="Choose" target="_self"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Pricing-area end -->
-
- 
-    <!-- Faq-area start -->
-    <div class="faq-area pt-100 pb-60">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title title-center mb-50" id="faq" data-aos="fade-up">
-                        <span class="subtitle color-primary">Using Help</span>
-                        <h2 class="title mt-0 mw-100">使用帮助</h2>
-                    </div>
-                    
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-lg-7" data-aos="fade-up">
-                            <div class="accordion mb-10" id="faqAccordion">
-                                <div class="accordion-item mb-30">
-                                    <h6 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            ①. 无法进入Roblox游戏软件的--问题
-                                        </button>
-                                    </h6>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body">
-                                            <p>
-                                               1.请检查一下-你有没有挂加速器
-                                            </p>
-                                            <p>
-                                               2.或者手机本身问题
-                                            </p>
-                                            <p>
-                                               3.无
-                                            </p>
-                                            <p>
-                                               4.或者就是Roblox又出问题了
-                                            </p>
-                                            <p>
-                                               5.无
-                                            </p>
-                                            <p>
-                                               [解决办法:无]
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item mb-30">
-                                    <h6 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
-                                            aria-controls="collapseTwo">
-                                            ②.Robloxfluxus注入器悬浮窗没弹出来怎么办--问题
-                                        </button>
-                                    </h6>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                        aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body">
-                                            <p>
-                                                1.有可能是地图并没有完全加载完-导致的没有弹窗                             
-                                           </p>
-                                            <p>
-                                                2.或者你的加速器带不动-也没有弹窗
-                                            </p>
-                                            <p>
-                                                [解决办法:等待建模加载出来-或者使用-我上面推荐的加速器]
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item mb-30">
-                                    <h6 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                            aria-expanded="true" aria-controls="collapseThree">
-                                            ③.怎么获得fluxus注入器的密钥--问题
-                                        </button>
-                                    </h6>
-                                    <div id="collapseThree" class="accordion-collapse collapse"
-                                        aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body">
-                                            <p>
-                                               1.往上滑-点击查看更多的使用说明
-                                            </p>
-                                            <p>
-                                                2.自己去加入其他脚本群有机器人
-                                            </p>
-                                            <p>
-                                               [解决办法:两个解决办法-任意选一个]
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item mb-30">
-                                    <h6 class="accordion-header" id="headingFour">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                            aria-expanded="true" aria-controls="collapseFour">
-                                            ④.脚本加载不出来该怎么办--问题
-                                        </button>
-                                    </h6>
-                                    <div id="collapseFour" class="accordion-collapse collapse"
-                                        aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body">
-                                            <p>
-                                              1.有可能是你网络问题-或者加速器
-                                            </p>
-                                            <p>
-                                              2.尽量使用TM加速器
-                                            </p>
-                                            <p>
-                                              [解决办法:尽量使用TM加速器-滑到最上面可以下载fluxus注入器]
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                 <div class="accordion-item mb-30">
-                                    <h6 class="accordion-header" id="headingFive">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseFive"
-                                            aria-expanded="true" aria-controls="collapseFive">
-                                            ⑤.为什么有一些功能不能用了--问题
-                                        </button>
-                                    </h6>
-                                    <div id="collapseFive" class="accordion-collapse collapse"
-                                        aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body">
-                                            <p>
-                                              1.游戏更新了
-                                            </p>
-                                            <p>
-                                             2.无
-                                            </p>
-                                            <p>
-                                              3.无
-                                            </p>
-                                            <p>
-                                              [解决办法:没办法-就这样吧-或者去催作者]
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                               <div class="accordion-item mb-30">
-                                    <h6 class="accordion-header" id="headingSix">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseSix"
-                                            aria-expanded="true" aria-controls="collapseSix">
-                                            ⑥.未开发
-                                        </button>
-                                    </h6>
-                                    <div id="collapseSix" class="accordion-collapse collapse"
-                                        aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body">
-                                            <p>没有任何内容</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="rating" id="rating">
+        下载<span class="rating-count">0</span>+ 评价<span class="rating-percentage">0%</span>
     </div>
-    <!-- Faq-area end -->
 
-    <!-- Footer-area start -->
-    <footer class="footer-area bg-primary-light">
-        
-        <div class="copy-right-area border-top ptb-30">
-            <div class="container">
-                <div class="copy-right-content mt-20">
-                    <span>
-                        导管官网 </span> <a href="index.html" target="_self" title="DXQ" class="color-primary">DXQ</a>                   
-                    </span>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer-area end-->
+    <h2>Roblox注入器官网</h2>
+    <div class="links">
+        <a href="javascript:void(0);" class="roblox-injector" data-url="https://fluxus.cc" onclick="handleInjectorClick(this)">fluxus.cc</a>
+        <a href="javascript:void(0);" class="roblox-injector" data-url="https://spdmtea.com" onclick="handleInjectorClick(this)">spdmtea.com</a>
+        <a href="javascript:void(0);" class="roblox-injector" data-url="https://VageX.gg" onclick="handleInjectorClick(this)">VageX.gg</a>
+        <a href="javascript:void(0);" class="roblox-injector" data-url="https://codex.lol" onclick="handleInjectorClick(this)">codex.lol</a>
+        <a href="javascript:void(0);" class="roblox-injector" data-url="https://DeltaExpoits.net" onclick="handleInjectorClick(this)">DeltaExpoits.net</a>
+    </div>
 
-    <!-- Cookie bar start -->
+    <script>
+        document.getElementById('joinBtn').addEventListener('click', function() {
+            this.classList.add('btn-click-animation');
+            setTimeout(() => this.classList.remove('btn-click-animation'), 500);
+            window.location.href = 'http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=3uvdxKPPSGsO6Gd1Teva-wLyZV3rrZqe&authKey=fojWDwqPMXlbyXlcm0SEruCiv0y4qXmTA3pqUYWD7lvtr2GF8oKqAqyGT%2BESSdZO&noverify=0&group_code=855219798';
+        });
 
+// 动态更新下载和评价数量
+function animateRating() {
+    var ratingCount = document.querySelector('.rating-count');
+    var ratingPercentage = document.querySelector('.rating-percentage');
+    var count = 0;
+    var interval = setInterval(function() {
+        count += 50;
+        if (count >= 1000) {
+            count = 1000;
+            clearInterval(interval);
+        }
+        ratingCount.textContent = count;
+        ratingPercentage.textContent = Math.min((count / 1000) * 100, 99) + '%';
+        ratingCount.style.animation = 'countAnimation 0.5s forwards';
+        ratingPercentage.style.animation = 'countAnimation 0.5s forwards';
+    }, 100);
+}
 
-    <!-- Go to Top -->
-    <div class="go-top"><i class="fal fa-angle-up"></i></div>
-    <!-- Go to Top -->
+animateRating();
 
-    <!-- Jquery JS -->
-    <script src="assets/js/vendors/jquery.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="assets/js/vendors/bootstrap.min.js"></script>
-    <!-- Counter JS -->
-    <script src="assets/js/vendors/jquery.counterup.min.js"></script>
-    <!-- Nice Select JS -->
-    <script src="assets/js/vendors/jquery.nice-select.min.js"></script>
-    <!-- Magnific Popup JS -->
-    <script src="assets/js/vendors/jquery.magnific-popup.min.js"></script>
-    <!-- Swiper Slider JS -->
-    <script src="assets/js/vendors/swiper-bundle.min.js"></script>
-    <!-- Lazysizes -->
-    <script src="assets/js/vendors/lazysizes.min.js"></script>
-    <!-- Twinmax JS -->
-    <script src="assets/js/vendors/tweenMax.min.js"></script>
-    <!-- Tilt JS -->
-    <script src="assets/js/vendors/tilt.jquery.min.js"></script>
-    <!-- AOS JS -->
-    <script src="assets/js/vendors/aos.min.js"></script>
-    <!-- Main script JS -->
-    <script src="assets/js/script.js"></script>
+</script>
 </body>
 </html>
-
