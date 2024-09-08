@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "flaticon";
+  src: url("./flaticon.ttf?d72b3752fd5b1c552d24ec45b0505a54") format("truetype"), url("./flaticon.woff?d72b3752fd5b1c552d24ec45b0505a54") format("woff"), url("./flaticon.woff2?d72b3752fd5b1c552d24ec45b0505a54") format("woff2"), url("./flaticon.eot?d72b3752fd5b1c552d24ec45b0505a54#iefix") format("embedded-opentype"), url("./flaticon.svg?d72b3752fd5b1c552d24ec45b0505a54#flaticon") format("svg");
+}
+i[class^=flaticon-]:before, i[class*=" flaticon-"]:before {
+  font-family: flaticon !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-rating:before {
+  content: "\f101";
+}
+
+.flaticon-downloads:before {
+  content: "\f102";
+}
+
+.flaticon-earth-grid:before {
+  content: "\f103";
+}
+
+.flaticon-easy-installation:before {
+  content: "\f104";
+}
+
+.flaticon-group:before {
+  content: "\f105";
+}
+
+.flaticon-add-user:before {
+  content: "\f106";
+}
+
+.flaticon-version:before {
+  content: "\f107";
+}
+
+.flaticon-app-installation:before {
+  content: "\f108";
+}/*# sourceMappingURL=flaticon.css.map */
