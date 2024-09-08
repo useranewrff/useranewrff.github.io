@@ -10,6 +10,34 @@
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    display: none; /* 初始时隐藏内容，直到加载完成 */
+  }
+
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader-wheel {
+    border: 5px solid #333;
+    border-top: 5px solid #0066cc;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 
   .container {
@@ -39,6 +67,8 @@
     padding: 20px;
     background: #fff;
     margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
   }
 
   .about h2 {
@@ -71,24 +101,32 @@
     bottom: 0;
     width: 100%;
   }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
 </style>
 </head>
 <body>
 
-<div class="container">
+<!-- 加载动画 -->
+<div class="loader" id="loader">
+  <div class="loader-wheel"></div>
+</div>
+
+<div class="container" id="main-content">
   <div class="header">
     <h1>导管中心</h1>
     <p>Roblox脚本</p>
   </div>
   
-  <!-- 网站简介 -->
   <div class="about">
     <h2>关于我们</h2>
     <p>导管中心是一家专注于Roblox游戏脚本开发的公司。我们有缝合版本自制版本脚本服务，帮助玩家在游戏中获得更好的体验。我们的团队由一个人组成，致力于不断创新和优化我们的产品。</p>
     <p>我们的目标是为客户提供卓越的技术支持，确保每位用户都能享受到我们脚本带来的便利。我们始终秉承用户至上的原则，努力打造一个友好、高效的游戏环境。</p>
   </div>
   
-  <!-- 加入QQ群链接按钮 -->
   <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ZudpKmGjLDvfuS5zRjkf-mk2lYqonKq-&authKey=Qul3jHI0VwAFjJoVOR1CGf1nMwHOdpxFXbPetp5%2FAOQbDLfq3bBcb6a1GOlY5dfd&noverify=0&group_code=965882368" class="button">加入导管中心QQ群</a>
   
   <div class="footer">
@@ -96,5 +134,7 @@
   </div>
 </div>
 
-</body>
-</html>
+<script>
+  window.addEventListener('load', function() {
+    var loader = document.getElementById('loader');
+    loader.style.display = 'none'; // 隐藏加载动画
